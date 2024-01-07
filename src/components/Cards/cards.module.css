@@ -1,0 +1,7 @@
+.container{
+    /*  diseño responsive rapidp */
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
