@@ -7,8 +7,8 @@ export default function SearchBar(props) {
 
    return (
       <div className={styles.SearchBar}>
-         <input  className={styles.input}type='search' placeholder='id..' />
-         <button className={styles.boton} onClick={onSearch}>Agregar</button>
+         <input  type = "search" />
+         <button onClick={onSearch}>Agregar</button>
       </div>
    );
 }
