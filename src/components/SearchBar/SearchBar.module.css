@@ -1,29 +1,21 @@
 .SearchBar{
-    background-color: darkgray;
+    background-color: yellowgreen;
     padding: 10px;
-    display: flex;
+    display:flex;
     width: auto;
-    
+    color: aqua;
     justify-content: end;
     margin-left: auto;
-    margin-top: -150px;
-    /* Si el tamaño de la pantalla es menor a 1400px entonces el margen cambia */
-    @media (max-width:1400px){
+    margin-top: 150px;
+    /*Si el tamaño de la pantalla es menor a 1400px entonces el margen cambia */
+     @media (max-width:1400px){
         margin-top: 0;
     }
-}
+} 
 
-
-.input{
-    background-color: aliceblue;
-    border-radius: 5px;
-    border:none;
-    width: 250px;
-    
-        
-}
+ 
 .boton{
-    background-color: blue;
+    background-color: forestgreen;
     color: aliceblue;
     border: none;
     padding:10px;
@@ -31,5 +23,8 @@
     cursor: pointer;
     margin-right: 10px;
     margin-left: 10px;
+
     
-}
+} 
+
+

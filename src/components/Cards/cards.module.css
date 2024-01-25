@@ -1,7 +1,19 @@
 .container{
-    /*  diseño responsive rapidp */
+    /* diseño responsive rapidp */
+    display: flex;  
+    color: navy;
+    background-color: lightcyan;
+    position: absolute;
+    height: 518px;
+    width:auto;
+    
+    
+}
+
+.form {
     display: flex;
-    flex-wrap: wrap;
-   
+    flex-direction: column;
+    color: black;
+    background-color: brown;
 }
 
