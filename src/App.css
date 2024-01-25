@@ -1,20 +1,26 @@
 .App{
     /* centramos todos los textos */
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     /* Alineamos todo al centro */
-    align-items: center;
+    /* align-items: center; */
     /*Ordenamos las cartas y la searchbox por columnas */
-    flex-direction: column;
+    /* flex-direction:row; */
     /*Esto hace que tengamos espacio entre la searchbox y las cartas*/
-    gap: 20px;
     /* Imagen de fondo */
     background-image: url(../lila.jpg);
     /* Sin esto se ve balanco abajo */
     /* height: auto; */
     min-height: 100vh;
-    
-    
+}
 
+.contentNav {
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.contentTotal {
+    width: 100%;
+    background-color: red;
 }

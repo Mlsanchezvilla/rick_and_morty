@@ -1,13 +1,9 @@
 .container {
     display:flex;
-    margin-bottom: 50px;
-    position: absolute;
-    top: 10%;
-    left: 10%; 
+    margin-bottom: 50px; 
     cursor:pointer;
     padding-bottom: 50px;
-    
-     }
+}
 
 .link {
     color: black;

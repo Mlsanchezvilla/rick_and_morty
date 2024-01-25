@@ -5,12 +5,12 @@ const initialState = {
 }
 
 const reducer = (state= initialState, action)=>{
-    const {type,payload} = action;
+    const {type, payload} = action;
     switch (type) {
         case ADD_FAVORITE:
             return{
                 ...state,
-                myFavorites: [...state.myFavorites,payload]
+                myFavorites: [...state.myFavorites, payload]
             }
 
 

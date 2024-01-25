@@ -12,9 +12,7 @@ import Favorites from "./components/favorites/favorites.jsx";
 function App() {
   //creando un estado local
   const [characters, setCharacters] = useState([]);
-
-  const [access, setAccess] = useState(false);
-  
+  const [access, setAccess] = useState(true);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,76 +22,60 @@ function App() {
   const EMAIL = "monika@gmail.com";
   const PASSWORD = "Lupita12345";
 
-  useEffect(()  => {
-    !access && navigate("/")
-  }, [access]); 
+  useEffect(() => {
+    console.log("Cambio el access");
+    !access && navigate("/");
+  }, [access]);
 
-
-  function login (userData) {
-
-    if(userData.password ===PASSWORD && userData.username ===EMAIL) {
-        setAccess(true);
-        navigate("/home");
-
+  function login(userData) {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate("/home");
     }
   }
 
-    //se guardan por referencia
-    async function onSearch(id) {
+  //se guardan por referencia
+  async function onSearch(id) {
     //llamada a API
 
-    try{
-        const response= await axios(`https://rickandmortyapi.com/api/character/${id}`);
-        if(response.data.name) {
-            setCharacters((oldChars)=>[...oldChars,response.data]);
-        }
-
+    try {
+      const response = await axios(
+        `https://rickandmortyapi.com/api/character/${id}`
+      );
+      if (response.data.name) {
+        setCharacters((oldChars) => [...oldChars, response.data]);
+      }
     } catch (error) {
-        window.alert("Error logueado");
-
+      window.alert("Error logueado");
     }
-     
-}
-            
-    const onClose = (id) => {
-        const filtered = characters.filter((char) => char.id !== id);
-        setCharacters(filtered);
-    };
+  }
 
-    return (
-        <div className="App">
-            {
-                location.pathname !== "/"?
-                <Nav onSearch={onSearch}/> :
-                undefined }
-            
-            <Routes>
-                 <Route path="/" element= {
-                    <Form login= {login}/>
-                 }/>
-                <Route
-                    path="/Home"
-                    element={
-                        <Cards characters={characters} onClose={onClose}/>
-                    }
-                />
-                <Route 
-                    path="/About"
-                    element={<About />} />
+  const onClose = (id) => {
+    const filtered = characters.filter((char) => char.id !== id);
+    setCharacters(filtered);
+  };
 
-                <Route 
-                    path="/detail/:detailId"
-                    element={<Detail />} />
+  return (
+    <div className="App">
+      <div className="contentNav">
+        {location.pathname !== "/" ? <Nav onSearch={onSearch} /> : undefined}
+      </div>
+      <div className="contentTotal">
+        <Routes>
+          <Route path="/" element={<Form login={login} />} />
+          <Route
+            path="/Home"
+            element={<Cards characters={characters} onClose={onClose} />}
+          />
+          <Route path="/About" element={<About />} />
 
-                <Route  
-                    path="/Favorites"   
-                    element={<Favorites />}/>
+          <Route path="/detail/:detailId" element={<Detail />} />
 
-            </Routes>
-
-        </div>
-    );
+          <Route path="/Favorites" element={<Favorites />} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
 export default App;
- 
