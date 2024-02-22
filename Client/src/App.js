@@ -12,25 +12,22 @@ import Favorites from "./components/favorites/favorites.jsx";
 function App() {
   //creando un estado local
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(true);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  //simulando base de datos para la parte de seguridad
-
-  const EMAIL = "monika@gmail.com";
-  const PASSWORD = "Lupita12345";
-
-  useEffect(() => {
-    console.log("Cambio el access");
-    !access && navigate("/");
-  }, [access]);
-
-  function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const response = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      if (response.data.access) {
+        navigate("/home");
+      }
+    } catch (error) {
+      window.alert("Error logueado");
     }
   }
 
@@ -42,7 +39,6 @@ function App() {
       const response = await axios(
         `http://localhost:3001/rickandmorty/character/${id}`
       );
-      console.log(response);
       if (response.data.name) {
         setCharacters((oldChars) => [...oldChars, response.data]);
       }

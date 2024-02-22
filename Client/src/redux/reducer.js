@@ -17,15 +17,13 @@ const reducer = (state = initialState, action) => {
     case ADD_FAVORITE:
       return {
         ...state,
-        allCharacters: [...state.allCharacters, payload],
-        myFavorites: [...state.myFavorites, payload],
+        allCharacters: payload,
+        myFavorites: payload,
       };
 
     case REMOVE_FAVORITE:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter((char) => char.id !== payload),
-      };
+      console.log("nuevos favoritos", payload);
+      return { ...state, myFavorites: payload, allCharacters: payload };
 
     case FILTER_CARDS:
       if (payload.toUpperCase() === "ALL") {

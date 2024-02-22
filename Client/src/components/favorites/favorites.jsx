@@ -9,6 +9,7 @@ const Favorites = (props) => {
     const { orderCards, filterCards } = props;
 
     const favorites = useSelector(state => state.myFavorites);
+    console.log(favorites, "favoritos")
 
     const dispatch = useDispatch();
     
@@ -42,7 +43,6 @@ const Favorites = (props) => {
             </div>
 
             <div style={{
-                width: "200%",
                 flexWrap: "wrap",
                 justifyContent: "center",
                 alignItems: "center",

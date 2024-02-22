@@ -11,8 +11,6 @@ let { containerCard, containerFavorite, containerData, imageStyle, btn, nameStyl
 export default function Card({ id, name, status, species, gender, origin, image, onClose }) {
    let dispatch = useDispatch();
    const myFavorites = useSelector(state => state.myFavorites);
-   console.log(myFavorites)
-
    const [isFav, setIsFav] = useState(false);
 
    // let char = {

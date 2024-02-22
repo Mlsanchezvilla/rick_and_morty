@@ -25,31 +25,3 @@ const getCharById = async (req, res) => {
 };
 
 module.exports = getCharById;
-
-// const getCharById = (res, id) => {
-//     console.log("entreeee");
-
-//     const apiUrl = `https://rickandmortyapi.com/api/character/${id}`;
-//     // const apiUrl = `https://rym2.up.railway.app/api/character/${id}`;
-//     axios
-//         .get(apiUrl)
-//         .then((response) => {
-//         const character = {
-//             id: response.data.id,
-//             name: response.data.name,
-//             status: response.data.status,
-//             species: response.data.species,
-//             gender: response.data.gender,
-//             origin: response.data.origin,
-//             image: response.data.image
-//         };
-//         res.writeHead(200, {'Content-Type': 'application/json'});
-//         res.write(JSON.stringify(character));
-//         res.end();
-//     })
-//     .catch((error) => {
-//         res.writeHead(500).contentType("text/plain").send(error.message);
-//     });
-// };
-
-// module.exports = getCharById;
